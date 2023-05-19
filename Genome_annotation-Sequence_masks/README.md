@@ -1,4 +1,4 @@
-### Scripts for generating genome masks and associated files
+# Scripts for generating genome masks and associated files
 
 ## gtf2gene_regions.comprehensive.pl
 
