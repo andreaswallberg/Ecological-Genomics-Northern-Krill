@@ -13,9 +13,10 @@ The scripts requires a BED file with repeat coordinates. It partitions the CpG s
 
 The methylation call file can be provided in as regular text or be gzipped.
 
-### Usage:
+### Usage example:
 
     ./methylation_frequencies_subdivide_repeats_bed.pl repeats.bed methylation_calls.tsv.gz
+
 
 ## methylation_frequencies2gene_region_repeats_coverage.genome_mask.pl
 
