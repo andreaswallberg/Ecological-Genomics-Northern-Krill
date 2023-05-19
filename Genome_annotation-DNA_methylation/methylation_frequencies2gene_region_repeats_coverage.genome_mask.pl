@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-# Enforce some programming rules/syntax
+# Copyright (c) 2023 Andreas Wallberg (Uppsala University)
 
 use strict;
 use warnings;
