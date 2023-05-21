@@ -16,6 +16,6 @@ This script reads 10X Chromium barcoded reads in FASTQ format and appends a stri
 
 ### Usage example:
 
-    rewrite_fastq_chromium.pl <string> reads.fastq
+    ./rewrite_fastq_chromium.pl <string> reads.fastq
 
 The first argument is the string and the second argument is the FASTQ file. The file needs to be decompressed. Alterantively, the script can read a decompressed stream of sequence data on STDIN. It prints to STDOUT.
