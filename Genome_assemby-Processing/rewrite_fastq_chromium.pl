@@ -1,5 +1,7 @@
 #!/usr/bin/perl -w
 
+# Copyright (c) 2023 Andreas Wallberg (Uppsala University)
+
 use strict;
 use warnings;
 use 5.010;
