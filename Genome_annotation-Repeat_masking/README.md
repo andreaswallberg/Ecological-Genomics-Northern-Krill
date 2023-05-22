@@ -2,6 +2,22 @@
 
 These scripts were developed for this study and have relatively narrow and study-specific scopes. Their overall purpose was to generate custom repeat library.
 
+## blasted_repeats2stats.pl
+
+This script takes the output of a MEGABLAST search of a set of repeats against the genome and filters the repeats to keep only meeting a certain set of criteria, such as a minimum number of hits with a certain minium identity score against the genome.
+
+Usage example:
+
+	blasted_repeats2stats.pl \
+	-min_identity 80 \ # Minimum identity score of the hit (DEFAULT=80)
+	-min_prop 0.8 \ # Minimum proportion of the repeat sequence in the hit (DEFAULT=0.8)
+	-min_length => 1500 \ # Minimum number of bases in the hit (DEFAULT=1500)
+	-min_hits 2 \ # Minimum number of hits (DEFAULT=10)
+	-repeats TRANSPOSONPSI=transposonpsi.repeats.fasta \ # The repeat library
+	-reference genome.fasta \ # The genome sequence
+	-blast TRANSPOSONPSI=transposonpsi.repeats.megablast.out.gz \ # Compressed MEGABLAST output
+	-output genome.fasta.transposonpsi.repeats.fasta.megablast.out.gz.identity_80.hits_2 # Output
+
 ## LTRs2table.pl
 
 This script processes multiple sources of annotations for LTR retrotransposons and reclassifies them according to the detected annotations. It is used to parse and annotate output from LTR_Harvest and LTR_Finder. It only outputs transposons with at least one hit against a LTR template or that remain "Unknown", i.e. repeats that get reclassified as something else than LTRs are discarded.
