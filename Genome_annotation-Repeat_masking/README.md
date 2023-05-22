@@ -158,5 +158,13 @@ This script processes multiple sources of repeat annotations and reclassifies th
 		    1> repeatmodeler.fa.orig.table.csv \
 		    2> repeatmodeler.fa.orig.reclassified
 
+## dnapipete2repeatmasker_library.pl
 
+This script filters and selects putative *de novo* assembled repeats from the dnaPipeTE output:
+
+	dnapipete2repeatmasker_library.pl \
+		0.1 \ minimum proportion of the contig annotated as a repeat in the heat
+		0.1 \ minimum proportion of the repeat template in the hit
+		one_RM_hit_per_Trinity_contigs \ # Tabular input based on BLAST hits
+		annoted.fasta # basename of output file
   
