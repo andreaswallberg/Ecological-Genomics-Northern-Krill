@@ -8,6 +8,8 @@ See https://github.com/andreaswallberg/Ecological-Genomics-Northern-Krill/tree/m
 
 This script computes FST per SNP (Weir-Cockerham) and/or per window (Reynolds)
 
+### Usage example:
+
     allele_counts2fst_matrix.reynolds.pl \
       --input populations.allele_counts.GT.csv \ # Allele counts
       --output populations.allele_counts.GT.csv.divergence \ # Basename of output
@@ -42,12 +44,7 @@ The per-SNP output looks as follows:
 - The first four columns specify SNP position and ref/alt alleles
 - This fifth column splits into three major subfields on "|": one about the pairwise comparison and two with metadata about each population.
 
-      name of contrast -> at/me
-      FST -> 0.0246
-      Total chromosome count in dataset -> 148 (74 diploids)
-      Proportion of genotyped samples across the whole dataset -> 1.0000
-      Proportion of genotyped samples in population 1 -> 1.0000
-      Proportion of genotyped samples in population 2 -> 1.0000
+Example from the first line:
 
       1st subfield (at/me:0.0246:148:1.0000:1.0000:1.0000)
 
