@@ -29,7 +29,7 @@ This scripts works downstream of **get_best_blast_hit_for_locus.pl** and filters
 
 ## parse_tracking.pl
 
-This script has a narrow and study-specific scope. This script parses all loci detected with GFFCOMPARE by reading the ".tracking" file and keeps only loci that fulfil the criteria below. It was designed to provide a set of well-supported comparative gene evidence derived from mapping multiple species to the genome.
+This script has a narrow and study-specific scope. It parses all loci detected with GFFCOMPARE by reading the ".tracking" file and keeps only loci that fulfil the criteria below. It was designed to provide a set of well-supported comparative gene evidence derived from mapping multiple species to the genome.
 
 To keep a locus, it must be supported by:
 - At least two genes with two or more exons that together are >= 500 bp long
@@ -60,7 +60,7 @@ Downstream of this script, **get_and_rename_transcripts.pl** (also study-specifi
 
 ## rename_multiple_transcripts_on_chosen.pl
 
-This script has a narrow and study-specific scope. This script relabels all isoforms belonging to the same locus based on the "best" isoform identified above. It preserves the original evidence for each isoform in the "oId" tag in the GTF file, using the following labels:
+This script has a narrow and study-specific scope. It relabels all isoforms belonging to the same locus based on the "best" isoform identified above. It preserves the original evidence for each isoform in the "oId" tag in the GTF file, using the following labels:
 
     "REF_STRG_*" => a locus with the "best" gene model derived from expressed Illumina RNA-seq or Nanopore cDNA (RNA evidence)
     "REF_TRIN_*" => a locus with the "best" gene model derived assembled and mapped Trinity RNA-seq transcripts (RNA evidence)
