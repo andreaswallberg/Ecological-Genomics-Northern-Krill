@@ -19,3 +19,16 @@ This script reads 10X Chromium barcoded reads in FASTQ format and appends a stri
     ./rewrite_fastq_chromium.pl <string> reads.fastq
 
 The first argument is the string and the second argument is the FASTQ file. The file needs to be decompressed. Alterantively, the script can read a decompressed stream of sequence data on STDIN. It prints to STDOUT.
+
+## chromium_barcode_analysis_simple.pl
+
+This script filters a BAM file with the purpose to keep only edge reads that map within some distance to the edge of sequences.
+
+### Usage example:
+
+        time ./chromium_barcode_analysis_simple.pl \
+            -mq 20 \
+            -md 20000 \
+            -rl 142 \
+            -bam short_reads.bam
+Here, "-mq" is mapping quality, "-md" is mapping distance and "-rl" is the average read length.
