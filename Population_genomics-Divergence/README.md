@@ -123,6 +123,6 @@ The per-gene output looks as follows:
     9	seq_s_1	REF_STRG_1_119_XLOC_012889	2340340	2529430	189091	0.0509611700876408	4579	0.0546942248756524	5636					0.0546942248756524	5636		
     10	seq_s_93	REF_STRG_1_1166_XLOC_112702	14781	711797	697017			0.0702911953986204	16063	0.0265099562719092	16	0.0419223853472152	4	0.0703155251942406	16047	0.0207186996030281	12
 
-Flanking FST is computed from in the region 50-100 kbp upstream and downstream of a gene (hardcoded into the script).
+It shows the average FST ("FST") and the number of SNPS ("N") for each region. Flanking FST is computed from in the region 50-100 kbp upstream and downstream of a gene (hardcoded into the script).
 
 
