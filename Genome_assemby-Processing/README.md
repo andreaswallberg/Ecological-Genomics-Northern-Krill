@@ -2,13 +2,23 @@
 
 ## split_fasta_chunks.pl
 
-This script splits a FASTA file into multiple files of a given size. It reads the information on STDIN. The script does not split sequences so the actual output size of chunks may vary depending on the lengths of input sequences.
+This script splits a FASTA file into multiple files of a given size (bp). It reads the information on STDIN. The script does not split sequences so the actual output size of chunks may vary depending on the lengths of input sequences.
 
 ### Usage example:
 
     cat genome_file.fasta | ./split_fasta_chunks.pl genome_file_split 100000000
 
 The first argument is the basename of the output file(s) and the second argument is the chunk size of the outputs.
+
+## split_fasta_N_files.pl
+
+This script splits a FASTA file into multiple files of a given number (n). The script does not split sequences so the actual output size of chunks may vary depending on the lengths of input sequences.
+
+### Usage example:
+
+    split_fasta_N_files.pl 10 genome_file.fasta
+
+The first argument is the number of output file(s) and the second argument is the input genome file. The output file names are derived from the input.
 
 ## rewrite_fastq_chromium.pl
 
