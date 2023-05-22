@@ -124,6 +124,8 @@ Usage example:
 
 This script processes multiple sources of annotations for Rolling Circle helitrons and reclassifies them according to the detected annotations. It is used to parse and annotate output from TransposonPSI and dnaPipeTE. It works similarly to **LTRs2table.pl** above but has a simpler input and output interface. It only outputs transposons with at least one hit against a helitron template.
 
+### Usage example:
+
     ./RC2table.pl \
         PSI \ # A tag, such as "PSI" as a short for "TransposonPSI"
         RC.fa.non_copia_gypsy.fasta \ # The input transposon library
@@ -148,6 +150,8 @@ This script processes multiple sources of annotations for LTRs and reclassifies 
 
 This script processes multiple sources of repeat annotations and reclassifies them according to the detected annotations. It is used to parse and annotate output from RepeatModeler. It works similarly to **LTRs2table.pl** above.
 
+### Usage example:
+
 	./RM2table.pl \
       -tag RM \
       -rm repeatmodeler.fa.orig \
@@ -162,9 +166,37 @@ This script processes multiple sources of repeat annotations and reclassifies th
 
 This script filters and selects putative *de novo* assembled repeats from the dnaPipeTE output:
 
+### Usage example:
+
 	dnapipete2repeatmasker_library.pl \
 		0.1 \ minimum proportion of the contig annotated as a repeat in the heat
 		0.1 \ minimum proportion of the repeat template in the hit
 		one_RM_hit_per_Trinity_contigs \ # Tabular input based on BLAST hits
 		annoted.fasta # basename of output file
   
+## repeat_density.ANY.per_repeat.pl
+
+This scripts parses the output from RepeatMasker and produces a table with number of instances and bases of each type of repeat. Repeats can be grouped at different levels: narrow, superfamily or broad.
+
+### Usage examples:
+
+	./repeat_density.ANY.per_repeat.pl \
+		narrow \ # Clusters repeats narrowly (e.g. each instance of each repeat template in the repeat library such as DNA/CMC-EnSpm-DNA_DN52163_c0_g4_i1_PIP_PSI )
+		19733156487 \ # Size of the genome
+		narrow \ # Tagging of output file
+		all_candidate_repeats.out \ # Basename of output file
+		all_candidate_repeats.out # RepeatMasker output
+
+	./repeat_density.ANY.per_repeat.pl \
+		superfamily \ # Clusters repeats at superfamily level (e.g. all instaces of DNA/CMC are grouped together)
+		19733156487 \ # Size of the genome
+		superfamily \ # Tagging of output file
+		all_candidate_repeats.out \ # Basename of output file
+		all_candidate_repeats.out # RepeatMasker output
+
+	./repeat_density.ANY.per_repeat.pl \
+		broad \ # Clusters repeats broadly (e.g. all instaces of DNA or LINE transposons)
+		19733156487 \ # Size of the genome
+		broad \ # Tagging of output file
+		all_candidate_repeats.out \ # Basename of output file
+		all_candidate_repeats.out # RepeatMasker output
