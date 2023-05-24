@@ -98,7 +98,7 @@ This script re-uses much of the code from **allele_counts2fst_matrix.reynolds.pl
         --groups \ # Groups together populations
             at=can,mai,bar,ice,nor,sva,swe \ # First population
             me=brc \ # Second population (there can be pairwise comparisons among more than two populations)
-		--region \ # Which genomic regions to look (refers back to the states encoded in the provided genome mask)
+		--region \ # Which genomic regions to look at (refers back to the states encoded in the provided genome mask)
 			1=intergenic \
 			2=intron \
 			3=three_prime_utr \
