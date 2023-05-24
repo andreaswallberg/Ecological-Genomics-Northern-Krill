@@ -32,7 +32,7 @@ The implementarion here differs by reusing some already calculated variables.
             6=cds \
         --verbose
 
-Aspects of usage:
+Additional options and other aspects of usage:
 - The "--vcf" argument can take more than one VCF file.
 - Samples should not be included in more than one group
 - The "--window" argument can take any number of window sizes (at the cost of performance)
@@ -58,8 +58,35 @@ It produces tabular output with the following format:
  
 ### Usage example:
 
-    time xp2windows.pl \
-    1000 \ # Window size
-    xp.out \ # Basename of output
-    `ls -v *.xpnsl.out.norm` # list of normalized files to look at
+    xp2windows.pl \
+        1000 \ # Window size
+        xp.out \ # Basename of output
+        `ls -v *.xpnsl.out.norm` # list of normalized files to look at
 
+## consolidate_window_stats.pl
+
+This is a helper script to consolidate multiple sources of window-based estimates, such as FST, diversity and cross-population XP-EHH/nSL statistics computed with other scripts in this collection. The script aggregates the data for every window and produces a new tabular output file. It assumes that the window-resolution is the same across all datasets. It essentially builds a flat-file tabular database of estimates.
+
+### Usage example:
+
+
+    consolidate_window_stats.pl \
+        -output consolidated_windows.1000bp.tsv \ # The tabular output file
+        -chromosome_list subset.bed \ # A bed file specifying which sequences to print info for
+        -fst_windows fst_windows.1000bp.csv \ # Window-based FST values
+        -xp_windows xp.out.1000bp.csv \ # cross-population EHH estimates
+        -diversity_windows phased_imputed_annotated_snps.vcf.gz.diversity.wattersons_theta_pi_tajimas_D.window_1000.any.csv \ # Diversity estimates (overall for whole dataset)
+        -diversity_comparative_windows phased_imputed_annotated_snps.vcf.gz.diversity.wattersons_theta_pi_tajimas_D.window_1000.any.csv \ # Diversity estimates (subdivided by populations)
+        -diversity_region_windows ALL.regions.consolidated_windows.1000bp.csv.filtrered.csv \ # Diversity estimates (subdivided by genomics regions, such as CDS, intron etc.)
+        
+The downstream **get_fields.pl** script can be used to extract particular fields:
+
+    get_fields.pl \
+        -table consolidated_windows.1000bp.tsv \ # The consolidated tabular file
+        -fields 0 1 4 10 \ # The fields/columns to extract
+        -inverse_fields 10 \ # Multiplies values in this column by -1
+        -rename_headers \ # Renames output headers for convenience
+            4=FST \
+        -tag "fst_diff.at_vs_me" Adds a tag to the output file name (which is based on the input file name)
+        
+ 
