@@ -38,3 +38,28 @@ Aspects of usage:
 - The "--window" argument can take any number of window sizes (at the cost of performance)
 - If a "-genes" argument is provided together with a GFF/GTF file, the script will compute the average levels of diversity at different distances upstream/downstream of genes.
 - The "groups" argument specifies the label of the group/population and points to a simple csv file with the names of the samples for that group (one sample name per line).
+
+## xp2windows.pl
+
+This script compiles window-based cross-population EHH summary statistics for normalized XP-nSL or XP-EHH estimates produced by selscan.
+Selscan is here: https://github.com/szpiech/selscan
+
+It produces tabular output with the following format:
+
+- CHROM = name of sequence
+- START = start position of the window
+- STOP = stop position of the window
+- N = number of SNPs in the window
+- N_CRIT = number of critical SNPs (values higher than 2 or lower than 2)
+- PROP_CRIT = proportion of critical SNPs
+- MIN = SNP with lowest value
+- MAX = SNP with highest value
+- MEAN = Mean value of all SNPs in the window
+ 
+### Usage example:
+
+    time xp2windows.pl \
+    1000 \ # Window size
+    xp.out \ # Basename of output
+    `ls -v *.xpnsl.out.norm` # list of normalized files to look at
+
