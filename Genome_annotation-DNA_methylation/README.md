@@ -65,7 +65,7 @@ It can also read a tabular text file ("-hetero") that specifies particular sites
     1 = only consider CpGs in repeats
     2 = do not distinguish between CpGs in repeats or non-repeat sequences (i.e. look at all CpGs)
 
-## compute_methylation_for_genes.95.pl
+## compute_methylation_for_genes.pl
 
 A small study-specific helper script to compute DNA methylation levels for genes according to their numbers of splice variants. The script also generates 95% confidence intervals through non-parametric bootstrapping (resampling genes).
 
@@ -78,7 +78,7 @@ A small study-specific helper script to compute DNA methylation levels for genes
 
 In the first table, the three first columns are read (name of gene, source of evidence and type of gene). Only genes of the type "GENE" are used in the analysis. Isoforms are assumed to be derived from RNA-seq data. CpG methylation are assumed to be mean values across the gene regions. The dataset used in the study is made available in the SciLifeLab Data Repository.
 
-## compute_methylation_for_ltrs.95.pl
+## compute_methylation_for_ltrs.pl
 
 A small study-specific helper script to compute DNA methylation levels for LTR retrotransposons. Repeat coordinates are derived from their names and cross-referenced with methylated CpG sites that fall within them. The script also generates 95% confidence intervals through non-parametric bootstrapping (resampling CpG sites).
 
