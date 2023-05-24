@@ -4,6 +4,14 @@ These scripts process VCFs to estimate levels and patterns of genetica variation
 
 ## vcf2watterson_pi_full_seqs_fast_coverage_gene_regions.pl
 
+This script estimates Watterson's theta (population mutation rate), Pi (nucleotide diversity) and Tajima's D.
+
+The code for Tajima's D originates from BioPerl and was originally written by Jason Stajich
+
+https://metacpan.org/release/CJFIELDS/BioPerl-1.6.924/source/Bio/PopGen/Statistics.pm
+
+The implementarion here differs by reusing some already calculated variables.
+
 ### Usage example:
 
     time vcf2watterson_pi_full_seqs_fast_coverage_gene_regions.pl \
@@ -23,5 +31,10 @@ These scripts process VCFs to estimate levels and patterns of genetica variation
             5=five_prime_utr \
             6=cds \
         --verbose
-        
-  The "groups" argument specifies the label of the group/population and points to a simple csv file with the names of the samples for that group (one sample name per line).
+
+Aspects of usage:
+- The "--vcf" argument can take more than one VCF file.
+- Samples should not be included in more than one group
+- The "--window" argument can take any number of window sizes (at the cost of performance)
+- If a "-genes" argument is provided together with a GFF/GTF file, the script will compute the average levels of diversity at different distances upstream/downstream of genes.
+- The "groups" argument specifies the label of the group/population and points to a simple csv file with the names of the samples for that group (one sample name per line).
