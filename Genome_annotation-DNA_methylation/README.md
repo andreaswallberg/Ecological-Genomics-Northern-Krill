@@ -78,7 +78,7 @@ A small study-specific helper script to compute DNA methylation levels for genes
 
 In the first table, the three first columns are read (name of gene, source of evidence and type of gene). Only genes of the type "GENE" are used in the analysis. Isoforms are assumed to be derived from RNA-seq data. CpG methylation are assumed to be mean values across the gene regions. The dataset used in the study is made available in the SciLifeLab Data Repository.
 
-## get_coordinates_for_repeat_list.95.pl
+## compute_methylation_for_ltrs.95.pl
 
 A small study-specific helper script to compute DNA methylation levels for LTR retrotransposons. Repeat coordinates are derived from their names and cross-referenced with methylated CpG sites that fall within them. The script also generates 95% confidence intervals through non-parametric bootstrapping (resampling CpG sites).
 
