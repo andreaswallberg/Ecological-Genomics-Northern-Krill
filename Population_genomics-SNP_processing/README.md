@@ -88,7 +88,7 @@ Usage example:
             sva=samples.sva.csv \
             swe=samples.swe.csv
                 
- The "groups" argument specifies the label of the group/population and points to a csv file with the names of the samples for that group (one sample per line).
+The "groups" argument specifies the label of the group/population and points to a simple csv file with the names of the samples for that group (one sample name per line).
  
  The output for the "GT" "allele_count" file looks as follows for 10 SNPs:
  
