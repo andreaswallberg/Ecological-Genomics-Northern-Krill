@@ -70,7 +70,7 @@ This is a helper script to consolidate multiple sources of window-based estimate
 ### Usage example:
 
 
-    consolidate_window_stats.pl \
+    ./consolidate_window_stats.pl \
         -output consolidated_windows.1000bp.tsv \ # The tabular output file
         -chromosome_list subset.bed \ # A bed file specifying which sequences to print info for
         -fst_windows fst_windows.1000bp.csv \ # Window-based FST values
@@ -81,7 +81,7 @@ This is a helper script to consolidate multiple sources of window-based estimate
         
 The downstream **get_fields.pl** script can be used to extract particular fields:
 
-    get_fields.pl \
+    ./get_fields.pl \
         -table consolidated_windows.1000bp.tsv \ # The consolidated tabular file
         -fields 0 1 4 10 \ # The fields/columns to extract
         -inverse_fields 10 \ # Multiplies values in this column by -1
@@ -89,7 +89,35 @@ The downstream **get_fields.pl** script can be used to extract particular fields
             4=FST \
         -tag "fst_diff.at_vs_me" Adds a tag to the output file name (which is based on the input file name)
         
- ## stat2distance_from_genes.pl
+ ## stat_over_fst2mean_ci.pl
+ 
+This script computes basic stats from window-based data to show associations between two parameters, such as FST and diversity or gene content. It partitions response-variable data according to a parameter scaled between 0 to 1, such as FST, using a user-specified number of categories. For every partition of data it computes the mean and 95% confidence intervals using non-parametric bootstrapping.
+
+### Usage example:
+
+    ./stat_over_fst2mean_ci.pl \
+        "abs" \
+        5 \
+        2 3 \
+        fst_and_diversity_windows_1000bp.tsv \
+        > fst_and_diversity_windows_1000bp.tsv.out
+
+Here the arguments are, in turn:
+- How to treat or filter the data for the response-variable (i.e. "Y-axis" data): any=include any data point; abs=use the absolute value of any data point; neg=use only negative values; pos=use only positive values
+- How many categories of the "X-axis" or "explanatory" parameter that observations should be partitioned into.
+- Which column contains X-axis data and which contains Y-axis data
+- The tabular input file with the data
+
+### Usage example:
+
+    ./stat2distance_from_genes.95.pl \
+        -window 1000 \ # Window size
+        -genes genes.gff3 \ # Gene coordinates in GFF format
+        -stats diversity_windows_1000bp.tsv \ # Window-based estimates
+        -fields 3 4 5 \ # Which fields to extract data from (can be more than one as in this example)
+        -output diversity_windows_1000bp.tsv.distances_away_from_genes.out
+
+## stat2distance_from_genes.pl
  
 This script computes the average and 95% non-parametric bootstrap interval of precalculated window-based features such as levels of genetic variation at increasing distaces away from genes. It reads a set of gene coordinates from a GFF file and window-based estimates from a tabular text file. It assumes the first row of the table contains column headers.
 
