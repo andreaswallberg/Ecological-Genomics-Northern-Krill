@@ -8,15 +8,15 @@ This script takes the output of a MEGABLAST search of a set of repeats against t
 
 Usage example:
 
-	blasted_repeats2stats.pl \
-	-min_identity 80 \ # Minimum identity score of the hit (DEFAULT=80)
-	-min_prop 0.8 \ # Minimum proportion of the repeat sequence in the hit (DEFAULT=0.8)
-	-min_length => 1500 \ # Minimum number of bases in the hit (DEFAULT=1500)
-	-min_hits 2 \ # Minimum number of hits (DEFAULT=10)
-	-repeats TRANSPOSONPSI=transposonpsi.repeats.fasta \ # The repeat library
-	-reference genome.fasta \ # The genome sequence
-	-blast TRANSPOSONPSI=transposonpsi.repeats.megablast.out.gz \ # Compressed MEGABLAST output
-	-output genome.fasta.transposonpsi.repeats.fasta.megablast.out.gz.identity_80.hits_2 # Output
+	./blasted_repeats2stats.pl \
+		-min_identity 80 \ # Minimum identity score of the hit (DEFAULT=80)
+		-min_prop 0.8 \ # Minimum proportion of the repeat sequence in the hit (DEFAULT=0.8)
+		-min_length => 1500 \ # Minimum number of bases in the hit (DEFAULT=1500)
+		-min_hits 2 \ # Minimum number of hits (DEFAULT=10)
+		-repeats TRANSPOSONPSI=transposonpsi.repeats.fasta \ # The repeat library
+		-reference genome.fasta \ # The genome sequence
+		-blast TRANSPOSONPSI=transposonpsi.repeats.megablast.out.gz \ # Compressed MEGABLAST output
+		-output genome.fasta.transposonpsi.repeats.fasta.megablast.out.gz.identity_80.hits_2 # Output
 
 ## LTRs2table.pl
 
