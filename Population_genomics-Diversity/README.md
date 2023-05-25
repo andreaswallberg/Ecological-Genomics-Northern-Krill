@@ -89,4 +89,18 @@ The downstream **get_fields.pl** script can be used to extract particular fields
             4=FST \
         -tag "fst_diff.at_vs_me" Adds a tag to the output file name (which is based on the input file name)
         
+ ## stat2distance_from_genes.pl
  
+This script computes the average and 95% non-parametric bootstrap interval of precalculated window-based features such as levels of genetic variation at increasing distaces away from genes. It reads a set of gene coordinates from a GFF file and window-based estimates from a tabular text file. It assumes the first row of the table contains column headers.
+
+It compiles all data points each given distance away from all genes into genome-wide distance-classes (e.g. 1000, 2000, 3000, ...) and bootstraps the observations for each class to generate confidence intervals.
+
+### Usage example:
+
+    stat2distance_from_genes.95.pl \
+        -window 1000 \ # Window size
+        -genes genes.gff3 \ # Gene coordinates in GFF format
+        -stats diversity_windows_1000bp.tsv \ # Window-based estimates
+        -fields 3 4 5 \ # Which fields to extract data from (can be more than one as in this example)
+        -output diversity_windows_1000bp.tsv.distances_away_from_genes.out
+
