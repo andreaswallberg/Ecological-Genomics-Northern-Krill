@@ -4,7 +4,7 @@ These scripts were developed for this study and have relatively narrow and study
 
 ## blasted_repeats2stats.pl
 
-This script takes the output of a MEGABLAST search of a set of repeats against the genome and filters the repeats to keep only meeting a certain set of criteria, such as a minimum number of hits with a certain minium identity score against the genome.
+This script takes the output of a MEGABLAST search of a set of repeats against the genome and filters the repeats to keep only those meeting a certain set of criteria, such as a minimum number of hits with a certain minium identity score against the genome.
 
 Usage example:
 
