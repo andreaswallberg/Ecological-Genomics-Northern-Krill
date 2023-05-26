@@ -6,6 +6,8 @@ These scripts process VCFs to estimate levels and patterns of genetica variation
 
 This script estimates Watterson's theta (population mutation rate), Pi (nucleotide diversity) and Tajima's D.
 
+**Reuse of code from other projects:**
+
 The code for Tajima's D originates from BioPerl and was originally written by Jason Stajich
 
 https://metacpan.org/release/CJFIELDS/BioPerl-1.6.924/source/Bio/PopGen/Statistics.pm
