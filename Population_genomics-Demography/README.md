@@ -1,6 +1,6 @@
 # Scripts for inferring demographic history and haplotype ages
 
-These scripts convert datasets into formats suitable to infer historical fluctuations of effective population size and allele/haplotype ages.
+These scripts convert datasets into formats suitable to infer historical fluctuations of effective population size, recombination rates and allele/haplotype ages.
 
 ## vcf2psmc_coverage.pl
 
@@ -19,7 +19,7 @@ https://github.com/lh3/psmc
         --vcf snps.vcf.gz \ # The VCF file (can be gzipped)
         --windows 100 \ # The window-resolution
         --output snps.vcf.gz.psmcfa \ # The output file
-        --sample samplename \ # The name of the sample in the VCF file to use
+        --sample mysample \ # The name of the sample in the VCF file to use
         --coverage genome_mask_accessible_100bp_windows.fasta \
         --seqs sequences.gt_500kbp.bed \ # A BED file specifying which sequences to consider
         --verbose \ # Print some extra progress statements
@@ -44,5 +44,20 @@ https://github.com/stschiff/msmc/blob/master/guide.md
             --coverage genome_mask_accessible.fasta \ # A binary-state genome mask (0=inaccessible; 1=accessible) to keep track on the number of accessible sites (per-base resolution)
             --seqs sequences.gt_500kbp.bed \ # A BED file specifying which sequences to consider
             --verbose \ # Print some extra progress statements
-          
- 
+
+## vcf2ismc_coverage_merged.pl
+
+This script reads multiple VCF files (using one or more lists) and exports data for use with ISMC to infer recombination rates. To this end, it produces:
+1. A merged VCF file containing only the genotypes of the desired sample.
+2. A corresponding set of genome sequences in FASTA format in which inaccessible sites have been masked by "N"s.
+
+ 		./vcf2ismc_coverage_merged.pl \
+			--files \
+				vcfs_in_list1 \ # The first list of sequences and VCF files
+				vcfs_in_list2 \ # A second list of sequences and VCF files
+			--output merged_data \ # Basename of the output
+			--sample mysample \ # The name of the sample
+			--coverage genome_mask_accessible_mysample.fasta \ # Genome-mask, should be specific to this sample
+			--seqs sequences.gt_500kbp.bed \ # A BED file specifying which sequences to consider
+			--fasta genome.fasta \ # The main genome assembly file to get the genome sequences from
+			--verbose \ # Print some extra progress statements
