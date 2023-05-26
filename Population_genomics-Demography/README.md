@@ -15,7 +15,7 @@ For every window in which there is at least on heterozygous SNP, the script over
 The format is described in more detail on the page of the original tool:
 https://github.com/lh3/psmc
 
-    time vcf2psmc_coverage.pl \
+    ./vcf2psmc_coverage.pl \
         --vcf snps.vcf.gz \ # The VCF file (can be gzipped)
         --windows 100 \ # The window-resolution
         --output snps.vcf.gz.psmcfa \ # The output file
@@ -37,7 +37,7 @@ https://github.com/stschiff/msmc/blob/master/guide.md
 
 # Usage example:
 
-    vcf2msmc_coverage.pl \
+    ./vcf2msmc_coverage.pl \
             --vcf snps_annotated.vcf.gz \ # A VCF file with SNPs (can be gzipped)
             --output snps_annotated.vcf.gz.out_for_msmc \ # Basename of the output file
             --group msmc_run_label=samples.csv \ # A "label" pointing to a corresponding list of samples (one sample per line)
