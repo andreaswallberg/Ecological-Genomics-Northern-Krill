@@ -12,7 +12,7 @@ The code for Tajima's D originates from BioPerl and was originally written by Ja
 
 https://metacpan.org/release/CJFIELDS/BioPerl-1.6.924/source/Bio/PopGen/Statistics.pm
 
-The implementarion here differs by reusing some already calculated variables.
+The implementation here differs by reusing some already calculated variables.
 
 ### Usage example:
 
