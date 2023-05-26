@@ -91,6 +91,14 @@ The code to generate such a file is here: https://github.com/andreaswallberg/Eco
 		sequences.tsv \ # A list of sequences to consider (one sequence per line)
 		pop1 \ # The name of the first population in the file
 		pop2 \ # The name of the second population in the file
-		populations.allele_counts.GT.csv.divergence.matrix.tsv
+		populations.allele_counts.GT.csv.divergence.matrix.tsv \ # The FST-matrix file (can be gzipped)
 
+## vcf2recode_minor_vcf.pl
+
+This script reads the major/minor allele table and recodes VCF files such that REF will always be the major allele and ALT the minor allele at every SNP.
+
+	./vcf2recode_minor_vcf.pl \
+		-tag pop1 \ # A tag to assign to the output file name, which is otherwise based on thename of the VCF input file
+		-minor populations.allele_counts.GT.csv.divergence.matrix.tsv.major_minor.pop1.tsv \ # The file with the major/minor alleles
+		-files vcfs.list \ # A file-of-files that specify the VCF files to recode
 
