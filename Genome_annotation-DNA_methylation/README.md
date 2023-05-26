@@ -54,7 +54,7 @@ It can also read a tabular text file ("-hetero") that specifies particular sites
 	-regions genome_mask_region.fasta \
 	-repeats genome_mask_repeats.fasta \
         -coverage genome_mask_accessible.fasta \
-        -hetero heterozygous_sites.tsv \
+	-hetero heterozygous_sites.tsv \
 	-output methylation_calls.tsv.gz.out \
 	-repeat_location 1 \
 	-methylation methylation_calls.tsv.gz
