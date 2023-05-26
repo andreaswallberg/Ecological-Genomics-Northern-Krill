@@ -52,7 +52,7 @@ It can also read a tabular text file ("-hetero") that specifies particular sites
     ./methylation_frequencies2gene_region_repeats_coverage.genome_mask.pl \
 	-dna 10 \
 	-regions genome_mask_region.fasta \
-        -repeats genome_mask_repeats.fasta \
+	-repeats genome_mask_repeats.fasta \
         -coverage genome_mask_accessible.fasta \
         -hetero heterozygous_sites.tsv \
 	-output methylation_calls.tsv.gz.out \
@@ -71,10 +71,10 @@ A small study-specific helper script to compute DNA methylation levels for genes
 
 ### Usage example:
 
-	././compute_methylation_for_genes.95.pl \
-	gene_table.tsv \ # Table with genes
-	genes_and_isoforms.csv \ # The number of known transcript isoforms per-gene
-	CpG_methylation.csv # The average DNA methylation level for different genomic regions (e.g. CDS, intron, etc) for each gene
+	./compute_methylation_for_genes.95.pl \
+		gene_table.tsv \ # Table with genes
+		genes_and_isoforms.csv \ # The number of known transcript isoforms per-gene
+		CpG_methylation.csv # The average DNA methylation level for different genomic regions (e.g. CDS, intron, etc) for each gene
 
 In the first table, the three first columns are read (name of gene, source of evidence and type of gene). Only genes of the type "GENE" are used in the analysis. Isoforms are assumed to be derived from RNA-seq data. CpG methylation are assumed to be mean values across the gene regions. The dataset used in the study is made available in the SciLifeLab Data Repository.
 
