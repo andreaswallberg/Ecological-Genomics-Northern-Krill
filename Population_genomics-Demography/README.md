@@ -15,6 +15,8 @@ For every window in which there is at least on heterozygous SNP, the script over
 The format is described in more detail on the page of the original tool:
 https://github.com/lh3/psmc
 
+### Usage example:
+
     ./vcf2psmc_coverage.pl \
         --vcf snps.vcf.gz \ # The VCF file (can be gzipped)
         --windows 100 \ # The window-resolution
@@ -26,7 +28,11 @@ https://github.com/lh3/psmc
 
 The small helper script **coverage_to_windows.pl** can be used to convert a per-base binary-state genome mask (0=inaccessible; 1=accessible) in FASTA format into the necessary window-based format:
 
+### Usage example:
+
     ./coverage_to_windows.pl 100 genome_mask_accessible.fasta > genome_mask_accessible_100bp_windows.fasta
+
+Here the first argument specifies the size of the window and the second argument is the accessibility mask.
 
 ## vcf2msmc_coverage.pl
 
@@ -35,7 +41,7 @@ This script reads a VCF file and exports data in a format compatible with MSMC. 
 The format is described in more detail on the page of the original tool:
 https://github.com/stschiff/msmc/blob/master/guide.md
 
-# Usage example:
+### Usage example:
 
     ./vcf2msmc_coverage.pl \
             --vcf snps_annotated.vcf.gz \ # A VCF file with SNPs (can be gzipped)
@@ -51,6 +57,8 @@ This script reads multiple VCF files (using one or more lists) and exports data 
 1. A merged VCF file containing only the genotypes of the desired sample.
 2. A corresponding set of genome sequences in FASTA format in which inaccessible sites have been masked by "N"s.
 
+### Usage example:
+
  		./vcf2ismc_coverage_merged.pl \
 			--files \
 				vcfs_in_list1 \ # The first list of sequences and VCF files
@@ -61,3 +69,8 @@ This script reads multiple VCF files (using one or more lists) and exports data 
 			--seqs sequences.gt_500kbp.bed \ # A BED file specifying which sequences to consider
 			--fasta genome.fasta \ # The main genome assembly file to get the genome sequences from
 			--verbose \ # Print some extra progress statements
+
+The lists should be tabular and the first column should contain the name of the sequence and the second column should contain the location of the VCF file that contains the SNPs for that sequence:
+
+	seq_1	vcfs/my_data.vcf
+
