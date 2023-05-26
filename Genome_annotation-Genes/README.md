@@ -88,3 +88,8 @@ It requires providing genome sequences and CDS sequences in separate FASTA files
         genes.gff3 \
         cds.fa
 
+## fix_coordinates.pl
+
+A small script used to fix coordinates such that start coordinates for features in a GFF are always smaller than stop coordinates, regardless of strand orientation of the feature.
+
+        ./fix_coordinates.pl my_file.gff > my_file_fixed.gff
