@@ -54,6 +54,7 @@ https://github.com/stschiff/msmc/blob/master/guide.md
 ## vcf2ismc_coverage_merged.pl
 
 This script reads multiple VCF files (using one or more lists) and exports data for use with ISMC to infer recombination rates. To this end, it produces:
+
 1. A merged VCF file containing only the genotypes of the desired sample.
 2. A corresponding set of genome sequences in FASTA format in which inaccessible sites have been masked by "N"s.
 
@@ -73,4 +74,23 @@ This script reads multiple VCF files (using one or more lists) and exports data 
 The lists should be tabular and the first column should contain the name of the sequence and the second column should contain the location of the VCF file that contains the SNPs for that sequence:
 
 	seq_1	vcfs/my_data.vcf
+
+## get_minor_major_allele_all.pl
+
+This script reads a tabular pairwise FST-matrix file that also contains allele frequencies for two populations and produces tables with the major and minor allele at every SNP position. Three files are produced, specifying the major/minor allele for:
+
+- The first population
+- The second population
+- Across both all data
+
+The code to generate such a file is here: https://github.com/andreaswallberg/Ecological-Genomics-Northern-Krill/tree/main/Population_genomics-Divergence
+
+### Usage example:
+
+	./get_minor_major_allele_all.pl \
+		sequences.tsv \ # A list of sequences to consider (one sequence per line)
+		pop1 \ # The name of the first population in the file
+		pop2 \ # The name of the second population in the file
+		populations.allele_counts.GT.csv.divergence.matrix.tsv
+
 
