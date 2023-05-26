@@ -12,20 +12,27 @@ The genome-mask should have one symbol per window:
 
 For every window in which there is at least on heterozygous SNP, the script overlays the symbol "K" on top of the genome-mask. 
 
+The format is described in more detail on the page of the original tool:
+https://github.com/lh3/psmc
+
     time vcf2psmc_coverage.pl \
         --vcf snps.vcf.gz \ # The VCF file (can be gzipped)
         --windows 100 \ # The window-resolution
         --output snps.vcf.gz.psmcfa \ # The output file
         --sample samplename \ # The name of the sample in the VCF file to use
-        --coverage genome_mask_accessible_windows.fasta \
+        --coverage genome_mask_accessible_100bp_windows.fasta \
         --seqs sequences.gt_500kbp.bed \ # A BED file specifying which sequences to consider
-        --verbose
+        --verbose \ # Print some extra progress statements
+
+The small helper script **coverage_to_windows.pl** can be used to convert a per-base binary-state genome mask (0=inaccessible; 1=accessible) in FASTA format into the necessary window-based format:
+
+    ./coverage_to_windows.pl 100 genome_mask_accessible.fasta > genome_mask_accessible_100bp_windows.fasta
 
 ## vcf2msmc_coverage.pl
 
 This script reads a VCF file and exports data in a format compatible with MSMC. By providing a list of samples in a simple text file, it can produce datasets with any number of haplotypes. It uses a accessibility mask to keep track on the number of accessible sites observed between SNPs.
 
-The format is described in more detail on page of the original tool:
+The format is described in more detail on the page of the original tool:
 https://github.com/stschiff/msmc/blob/master/guide.md
 
 # Usage example:
