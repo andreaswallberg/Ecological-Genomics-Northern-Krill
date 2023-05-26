@@ -50,14 +50,14 @@ It can also read a tabular text file ("-hetero") that specifies particular sites
 ### Usage example:
 
     ./methylation_frequencies2gene_region_repeats_coverage.genome_mask.pl \
-	-dna 10 \
-	-regions genome_mask_region.fasta \
-	-repeats genome_mask_repeats.fasta \
-        -coverage genome_mask_accessible.fasta \
-	-hetero heterozygous_sites.tsv \
-	-output methylation_calls.tsv.gz.out \
-	-repeat_location 1 \
-	-methylation methylation_calls.tsv.gz
+		-dna 10 \
+		-regions genome_mask_region.fasta \
+		-repeats genome_mask_repeats.fasta \
+        	-coverage genome_mask_accessible.fasta \
+		-hetero heterozygous_sites.tsv \
+		-output methylation_calls.tsv.gz.out \
+		-repeat_location 1 \
+		-methylation methylation_calls.tsv.gz
         
 * The "-methylation" option can specify more than one file.
 * The "-repeat_location" option means:
