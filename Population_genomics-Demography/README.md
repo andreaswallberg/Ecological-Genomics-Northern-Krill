@@ -77,6 +77,11 @@ The lists should be tabular and the first column should contain the name of the 
 
 ## get_minor_major_allele_all.pl
 
+This script and **vcf2recode_minor_vcf.pl** are used to prepare data for GEVA, a tool to infer the ages of alleles:
+https://github.com/pkalbers/geva
+
+For each population, the major allele is assumed to be ancestral and the minor allele to be derived.
+
 This script reads a tabular pairwise FST-matrix file that also contains allele frequencies for two populations and produces tables with the major and minor allele at every SNP position. Three files are produced, specifying the major/minor allele for:
 
 - The first population
