@@ -14,4 +14,4 @@ It is specific to this study and contains hard-coded species labels in the scrip
 
 ### Usage example:
 
-  ./process_groups_all.pl all_matches.out.30_30.orth.apc > all_matches.out.30_30.orth.apc.table.ALL.csv
+    ./process_groups_all.pl all_matches.out.30_30.orth.apc > all_matches.out.30_30.orth.apc.table.ALL.csv
