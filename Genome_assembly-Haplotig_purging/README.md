@@ -1,7 +1,9 @@
 Scripts for processing assembly haplotigs
 
-The script provided below modifies the **purge.pl** script originally written by Michael Roach (Australian Wine Research Institute) and part of the open source Purge Haplotigs tool v1.1.0. That tool can be found here:
+The script provided below is a modification of the **purge.pl** script originally written by Michael Roach (Australian Wine Research Institute) and part of the open source Purge Haplotigs tool v1.1.0. That tool can be found here:
 https://bitbucket.org/mroachawri/purge_haplotigs/wiki/Updates
+
+The **purge.pl** script is executed when running the "purge_haplotigs purge" subcommand.
 
 The original **purge.pl** script has a permissive license:
 
@@ -17,9 +19,10 @@ The original **purge.pl** script has a permissive license:
     # The above copyright notice and this permission notice shall be included in all
     # copies or substantial portions of the Software.
 
-The script is executed when running the "purge_haplotigs purge" subcommand.
 
-The modified version of the **purge.pl** script is derived from Michael Roach's code and re-distributed under the same license. The modified version of the script was implemented to increase run-time performance in processing the very large and repeated genome by:
+The modified version of the **purge.pl** script is derived from Michael Roach's code and re-distributed under the same license.
+
+The modified version of the script was implemented to increase run-time performance in processing the very large and repeated genome by:
 
 - using minimap2 without making an mmi index file on disk
 - using faster parsing of tabular text files in many places: instead of splitting lines, it performs regular expression pattern matching to extract data points from specific fields
