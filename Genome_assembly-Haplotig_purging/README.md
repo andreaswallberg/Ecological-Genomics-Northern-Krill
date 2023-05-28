@@ -3,7 +3,7 @@ Scripts for processing assembly haplotigs
 The script provided below modifies the **purge.pl** script originally written by Michael Roach (Australian Wine Research Institute) and part of the open source Purge Haplotigs tool v1.1.0. That tool can be found here:
 https://bitbucket.org/mroachawri/purge_haplotigs/wiki/Updates
 
-The original purge.pl script has a permissive license:
+The original **purge.pl** script has a permissive license:
 
     # Copyright (c) 2017 Michael Roach (Australian Wine Research Institute)
     #
@@ -17,9 +17,9 @@ The original purge.pl script has a permissive license:
     # The above copyright notice and this permission notice shall be included in all
     # copies or substantial portions of the Software.
 
-This script is executed when running the "purge_haplotigs purge" subcommand.
+The script is executed when running the "purge_haplotigs purge" subcommand.
 
-The modified version of the script is derived from Michael Roach's code and re-distributed under the same license. The modified version of the script was implemented to increase run-time performance in processing the very large and repeated genome by:
+The modified version of the **purge.pl** script is derived from Michael Roach's code and re-distributed under the same license. The modified version of the script was implemented to increase run-time performance in processing the very large and repeated genome by:
 
 - using minimap2 without making an mmi index file on disk
 - using faster parsing of tabular text files in many places: instead of splitting lines, it performs regular expression pattern matching to extract data points from specific fields
@@ -30,3 +30,4 @@ To accomplish the latter, it first calculates the length of each query contig (t
 
 In this version of the script, **purge.pl** parses the original PAF twice: in the first pass, the significant alignments are detected and in the second pass, they are printed to a simplified PAF that only contains these. This PAF is then indexed and used for the downstream analyses. A "hit summary" file is written to disk but not read back as the necessary information is already kept in memory. The script then proceeds with the original iterative algorithm.
 
+Changes to the code are indicated with "NOTE:" tags and the original code is typically kept but commented out.
