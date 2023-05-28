@@ -24,7 +24,7 @@ The modified version of the script is derived from Michael Roach's code and re-d
 - using minimap2 without making an mmi index file on disk
 - using faster parsing of tabular text files in many places: instead of splitting lines, it performs regular expression pattern matching to extract data points from specific fields
 - using string-based instead of array based data structures, reducing memory usage. This pertains to storing associations between different contigs.
-- using a faster internal handling of repeats instead of repeatedly calling and executing the external tool "bedtools".
+- using faster internal handling of repeat coordinates instead of repeatedly calling and executing the external tool "bedtools".
 
 To accomplish the latter, it first calculates the length of each query contig (that is also a suspect) after removing repeat sequences. Target contigs that are long enough to have the potential to produce an alignment of significant length against that corrected query length are then considered in-depth. The script creates a mask for the full length of the query contig that is specific for this target contig, setting all bases to the symbol "0". Aligned regions reported in the PAF file (alignment output from minimap2) are then rewritten using the state "1". Repeated regions are then written on top the mask using the state "2". The remaining "1"s are counted and if they surpass the treshhold, for example 70%, of the corrected query length the query and target are kept as potential haplotigs.
 
