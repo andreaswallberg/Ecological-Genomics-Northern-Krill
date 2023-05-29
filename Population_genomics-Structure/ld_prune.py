@@ -11,7 +11,7 @@ here: https://alimanfoo.github.io/2015/09/28/fast-pca.html
 EXAMPLES
 
 python ld_prune.py input.vcf.gz
-python ld_prune.py --window-size
+python ld_prune.py --subsample-fraction 0.05 --window-size 100 input.vcf.gz
 
 """
 import logging
