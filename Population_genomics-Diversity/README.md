@@ -134,3 +134,11 @@ It compiles all data points each given distance away from all genes into genome-
         -fields 3 4 5 \ # Which fields to extract data from (can be more than one as in this example)
         -output diversity_windows_1000bp.tsv.distances_away_from_genes.out
 
+## count_shared_variation.pl
+
+This script reads allele count tables produced by **vcf2allele_counts.pl** [a link](https://github.com/andreaswallberg/Ecological-Genomics-Northern-Krill/tree/main/Population_genomics-SNP_processing) and calculate the number of non-singleton SNPs that are polymorphic across one or more populations (e.g. how many SNPs are uniquely polymorphic in only one population, how many SNPs are polymorphic in two populations, ...).
+
+### Usage example:
+
+    ./count_shared_variation.pl {1..80}.allele_counts.tsv > shared_variants.csv # Read and calculate allele counts from 80 files
+
