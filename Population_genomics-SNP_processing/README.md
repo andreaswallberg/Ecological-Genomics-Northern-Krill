@@ -37,11 +37,11 @@ It outputs a new VCF with variants, as well as variants written in FASTA and GEN
 Usage example:
     
     vcf_biallelic2fasta.pl \
-    --input snps.keep.vcf.gz \ # The VCF input
-    --output snps.keep.vcf.gz.biallelic.FILTERED \ # Basename of the output files
-    --min_fill_sample 0.5 \ # Minimum genotyping rate for a sample to be included in the FASTA output
-    --min_fill_position 0.5 \
-    --min_depth 94
+        --input snps.keep.vcf.gz \ # The VCF input
+        --output snps.keep.vcf.gz.biallelic.FILTERED \ # Basename of the output files
+        --min_fill_sample 0.5 \ # Minimum genotyping rate for a sample to be included in the FASTA output
+        --min_fill_position 0.5 \
+        --min_depth 94
     
 The FASTA output contains one string per sample. An example:
 
@@ -60,6 +60,12 @@ The GENO format contains data in SNP per line and one column per sample. The sym
       9 => missing data.
 
 More information about the GENO format is available here: https://reich.hms.harvard.edu/software/InputFileFormats
+
+## vcf_biallelic2fasta_simple.pl
+
+This script converts a set a biallelic SNPs in VCF format to FASTA. Heterozygous genotypes are always sorted with the reference allele first (as above). No filter or other processing of SNPs are applied. It can read both gzip-compressed and uncompressed VCFs:
+
+    vcf_biallelic2fasta_simple.pl -input snps.keep.vcf.gz > snps.keep.vcf.gz.fa
 
 ## vcf2allele_counts.pl
 
