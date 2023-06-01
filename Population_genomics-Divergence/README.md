@@ -125,4 +125,32 @@ The per-gene output looks as follows:
 
 It shows the average FST ("FST") and the number of SNPS ("N") for each region. Flanking FST is computed from in the region 50-100 kbp upstream and downstream of a gene (hardcoded into the script).
 
+## pairwise_distances.pl
+
+This script reads one or more FASTA file and computes uncorrected pairwise distances between samples (i.e. no model is applied to correct for multiple substitutions at the same site among more divergent sequences). It uses bitwise operators to be able to process long (chromosome-scale or genome-scale) text strings in shorts amounts of time.
+
+The script assumes that the same samples are present in each FASTA file, with identical sequence headers. It is up to the user to ensure this. Characters other than ACGT are masked.
+
+A distance matrix is printed in phylip-format, which for example can be recomputed into a tree using SplitsTree.
+
+An accessory table is printed with some metadata:
+
+- AVG_DIFF_PROP	=> the average difference per base between samples in the input dataset
+- AVF_DIFF_N => the average number of differences between samples in the input dataset
+- AVG_ALIGNED_POSITIONS => the	average number of "aligned" positions, i.e. positions with ACGTs, after masking invalid symbols and accounting for missing data or gaps (e.g. "-" or "?")
+- ALL_POSITIONS => the length of the dataset (i.e not taking into account invalid/missing/gap characters)
+- ALIGNED_PROP => the average proportion of aligned data
+- COMPARISONS => the number of pairwise comparisons made
+- COMPARISONS_PER_SAMPLE => the number of pairwise comparisons per sample (should be number of samples in dataset - 1)
+
+### Usage example:
+
+	./pairwise_distances.pl \
+		sequences.fa.pairwise \ # Basename of output
+		sequences.{1..10}.fa # Input files
+
+If the script is used to compute distances from SNPs but not full sequences, the distance matrix can be rescaled manually to produce per-base distances between samples (i.e. dXY). For each cell in the distance matrix, take:
+
+	differences = ( distance * number of SNPs ) / 2 # If each SNP position in a diploid dataset is represented by two symbols, divide by two as in this example
+	distance = differences / number of accessible sites
 
