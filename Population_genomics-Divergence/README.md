@@ -151,6 +151,6 @@ An accessory table is printed with some metadata:
 
 If the script is used to compute distances from SNPs but not full sequences, the distance matrix can be rescaled manually to produce per-base distances between samples (i.e. dXY). For each cell in the distance matrix, take:
 
-	differences = ( distance * number of SNPs ) / 2 # If each SNP position in a diploid dataset is represented by two symbols, divide by two as in this example
+	differences = ( distance * number of SNP positions ) / 2 # If each SNP position in a diploid dataset is represented by two symbols, divide by two as in this example
 	distance = differences / number of accessible sites
 
