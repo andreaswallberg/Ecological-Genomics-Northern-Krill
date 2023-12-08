@@ -67,6 +67,23 @@ This script converts a set a biallelic SNPs in VCF format to FASTA. Heterozygous
 
     vcf_biallelic2fasta_simple.pl -input snps.keep.vcf.gz > snps.keep.vcf.gz.fa
 
+## vcf_biallelic2fasta_simple_haplotypes.pl
+
+This script converts a set a biallelic SNPs in VCF format to FASTA. Each diploid sample is subdivided into two pseudo-haplotypes (with either "_1" or "_2" tagged to the original sequence header). No filter or other processing of SNPs are applied. It can read both gzip-compressed and uncompressed VCFs:
+
+    vcf_biallelic2fasta_simple_haplotypes.pl -input snps.keep.vcf.gz > snps.keep.vcf.gz.fa
+
+The FASTA output contains two strings per sample. An example (same data as above):
+
+    >bar_1_1
+    TGA
+    >bar_1_2
+    CAT
+    >bar_10_1
+    TGA
+    >bar_10_2
+    TGA
+
 ## vcf2allele_counts.pl
 
 This script estimates SNP allele frequencies for populations by grouping together samples present in a VCF file.
